@@ -1,0 +1,42 @@
+---
+import BottomBar from '@components/BottomBar.astro';
+import TopBar from '@components/TopBar.astro';
+import '@src/site.css';
+---
+
+<html lang='en'>
+  <head>
+    <meta charset='utf-8' />
+    <link rel='icon' type='image/svg+xml' href='/go-go-logo.svg' />
+    <meta name='viewport' content='width=device-width' />
+    <meta name='generator' content={Astro.generator} />
+    <meta
+      name='description'
+      content="Don't pay retail on new wheels and tires"
+    />
+    <title>Go Go Wheels and Tires</title>
+    <script>
+      import * as htmx from 'htmx.org';
+      import Alpine from 'alpinejs';
+
+      declare global {
+        interface Window {
+          htmx: any;
+          Alpine: any;
+        }
+      }
+
+      window.htmx = htmx; //optional
+      window.Alpine = Alpine; //optional
+
+      Alpine.start();
+      htmx.process(document.body);
+    </script>
+  </head>
+  <body>
+    <TopBar />
+    <dialog></dialog>
+    <slot />
+    <BottomBar />
+  </body>
+</html>

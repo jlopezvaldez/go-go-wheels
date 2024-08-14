@@ -1,0 +1,30 @@
+---
+// BrandLogos.astro
+const brands = [
+  { name: 'Nitto Tires', logo: 'nitto-1.svg' },
+  { name: 'Toyo Tires', logo: 'toyo-logo@2x.png' },
+  { name: 'Falken Tires', logo: 'falkenn.svg' },
+  { name: 'Brand 4', logo: 'radar-logo.png' },
+  { name: 'Brand 5', logo: 'venom-logo.png' },
+  //   { name: 'Brand 6', logo: '/path/to/brand6-logo.svg' },
+  // Add more brands as needed
+];
+---
+
+<div class='mt-8 sm:mt-12'>
+  <div
+    class='grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-4 items-center justify-items-center'
+  >
+    {
+      brands.map((brand) => (
+        <div class='flex items-center justify-center p-2'>
+          <img
+            src={brand.logo}
+            alt={`${brand.name} logo`}
+            class='max-h-8 sm:max-h-10 md:max-h-12 w-auto object-contain filter transition-all duration-300'
+          />
+        </div>
+      ))
+    }
+  </div>
+</div>

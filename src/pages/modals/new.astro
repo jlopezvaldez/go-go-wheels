@@ -1,0 +1,107 @@
+---
+export const partial = true;
+
+import ButtonCancel from '@components/modals/ButtonCancel.astro';
+import ButtonSubmit from '@components/modals/ButtonSubmit.astro';
+import InputField from '@components/modals/InputField.astro';
+import ModalLayout from '@components/modals/ModalLayout.astro';
+---
+
+<ModalLayout title='Finish Your Quote'>
+  <h3 class='text-lg font-medium text-gray-600 mb-4'>
+    Enter tire details to help us customize your options
+  </h3>
+  <form
+    class='space-y-6'
+    hx-post='/app/api/projects'
+    x-data='{budgetValue:500}'
+  >
+    <div class='space-y-4'>
+      <div class='grid grid-cols-3 gap-4 mt-1'>
+        <div>
+          <label
+            for='tire_width'
+            class='block text-sm font-medium text-gray-700'>Tire Width</label
+          >
+          <InputField
+            name='tire_width'
+            id='tire_width'
+            placeholder='e.g., 225'
+          />
+        </div>
+        <div>
+          <label
+            for='tire_ratio'
+            class='block text-sm font-medium text-gray-700'>Ratio</label
+          >
+          <InputField
+            name='tire_ratio'
+            id='tire_ratio'
+            placeholder='e.g., 45'
+          />
+        </div>
+        <div>
+          <label
+            for='tire_diameter'
+            class='block text-sm font-medium text-gray-700'>Diameter</label
+          >
+          <InputField
+            name='tire_diameter'
+            id='tire_diameter'
+            placeholder='e.g., 17'
+          />
+        </div>
+      </div>
+
+      <div>
+        <label for='brand' class='block text-sm font-medium text-gray-700'
+          >Preferred Brand (Optional)</label
+        >
+        <select
+          name='brand'
+          id='brand'
+          class='mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md'
+        >
+          <option value=''>Select a brand</option>
+          <option value='michelin'>Michelin</option>
+          <option value='goodyear'>Goodyear</option>
+          <option value='bridgestone'>Bridgestone</option>
+          <option value='continental'>Continental</option>
+          <!-- Add more brand options as needed -->
+        </select>
+      </div>
+      <div class='mt-6'>
+        <label
+          for='budget'
+          class='block text-sm font-medium text-gray-700 mb-2'
+        >
+          Budget - $<span x-text='budgetValue'></span>
+        </label>
+        <input
+          type='range'
+          id='budget'
+          name='budget'
+          min='0'
+          max='1050'
+          x-model='budgetValue'
+          step='50'
+          class='w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer'
+        />
+        <div class='flex justify-between text-xs text-gray-600 mt-1'>
+          <span>$0</span>
+          <span id='budgetValue'> $500</span>
+          <span>$1000+</span>
+        </div>
+      </div>
+    </div>
+
+    <p class='text-sm text-gray-500 italic'>
+      Don't know? Hit skip and we'll reach out to you!
+    </p>
+
+    <div class='flex justify-center space-x-4'>
+      <ButtonSubmit label='Customize My Quote' />
+      <ButtonCancel />
+    </div>
+  </form>
+</ModalLayout>
