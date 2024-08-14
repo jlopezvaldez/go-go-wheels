@@ -21,12 +21,11 @@ import '@src/site.css';
 
       declare global {
         interface Window {
-          htmx: any;
+          htmx: typeof htmx;
           Alpine: any;
         }
       }
 
-      window.htmx = htmx; //optional
       window.Alpine = Alpine; //optional
 
       Alpine.start();

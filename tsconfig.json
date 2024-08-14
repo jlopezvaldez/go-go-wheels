@@ -10,9 +10,7 @@
       "@src/*": ["src/*"],
       "@images/*":["src/images/*"]
     },
-    "types": [
-      "htmx.org/dist/htmx"
-    ]
+ 
   }
   
 }

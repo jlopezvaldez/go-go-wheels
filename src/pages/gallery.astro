@@ -3,36 +3,38 @@
 import Layout from '../layouts/Layout.astro';
 export const prerender = true;
 
-// import pictureone from '../images/0.JPEG';
-// import picturetwo from '@images/1.JPEG';
-// import picturethree from '@images/2.JPEG';
-// import picturefour from '@images/3.JPEG';
-// import picturefive from '@images/4.JPEG';
-// import picturesix from '@images/5.JPEG';
-// import pictureseven from '@images/6.JPEG';
-// import pictureeight from '@images/7.JPEG';
-// import picturenine from '@images/8.JPEG';
-// import pictureten from '@images/9.JPEG';
-// import pictureeleven from '@images/10.JPEG';
-// import picturetwelve from '@images/11.JPEG';
+import { Image } from 'astro:assets';
+
+import pictureone from '@images/0.JPEG';
+import picturetwo from '@images/1.JPEG';
+import picturethree from '@images/2.JPEG';
+import picturefour from '@images/3.JPEG';
+import picturefive from '@images/4.JPEG';
+import picturesix from '@images/5.JPEG';
+import pictureseven from '@images/6.JPEG';
+import pictureeight from '@images/7.JPEG';
+import picturenine from '@images/8.JPEG';
+import pictureten from '@images/9.JPEG';
+import pictureeleven from '@images/10.JPEG';
+import picturetwelve from '@images/11.JPEG';
 
 // In a real application, you'd likely fetch this data from an API or CMS
 const galleryItems = [
   {
     id: 1,
-    src: '../images/0.JPEG',
+    src: pictureone.src,
     alt: 'Custom wheels on a sports car',
     category: 'Wheels',
   },
   {
     id: 2,
-    src: '../images/1.JPEG',
+    src: picturetwo.src,
     alt: 'Off-road tires installation',
     category: 'Tires',
   },
   {
     id: 3,
-    src: '../images/2.JPEG',
+    src: picturethree.src,
     alt: 'Vintage car restoration',
     category: 'Restoration',
   },
