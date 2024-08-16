@@ -8,7 +8,6 @@ if (Astro.request.method === 'POST') {
   const formData = await Astro.request.formData();
   const phoneNumber = formData.get('phone-input') as string;
   quote = await newQuote(phoneNumber);
-  console.log('QUOTE: ', quote);
 }
 ---
 

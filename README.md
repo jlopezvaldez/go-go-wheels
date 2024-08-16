@@ -1,47 +1,69 @@
-# Astro Starter Kit: Minimal
+# 🏎️ Go Go Wheels and Tires
 
-```sh
-npm create astro@latest -- --template minimal
+Go Go Wheels is a premier Phoenix-based private distributor of high-quality wheels and tires at unbeatable prices.
+
+## 🌟 Features
+
+- 💰 Get quotes for your vehicle
+- 📸 View our gallery of custom wheel and tire setups
+- 📞 Easy contact options for personalized service
+
+## 🛠️ Built With
+
+- [Astro](https://astro.build/) - The web framework for content-driven websites
+- [Tailwind CSS](https://tailwindcss.com/) - A utility-first CSS framework
+- [Alpine.js](https://alpinejs.dev/) - A rugged, minimal framework for composing JavaScript behavior
+- [HTMX](https://htmx.org/) - High power tools for HTML
+
+## 🚀 Quick Start
+
+1. Clone the repository
+   ```
+   git clone https://github.com/your-username/go-go-wheels.git
+   ```
+
+2. Navigate to the project directory
+   ```
+   cd go-go-wheels
+   ```
+
+3. Install dependencies
+   ```
+   npm install
+   ```
+
+4. Start the development server
+   ```
+   npm run dev
+   ```
+
+5. Open your browser and visit `http://localhost:4321`
+
+## 📁 Project Structure
+
 ```
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
 /
 ├── public/
+│   └── favicon.svg
 ├── src/
+│   ├── components/
+│   ├── layouts/
 │   └── pages/
-│       └── index.astro
-└── package.json
+├── astro.config.mjs
+├── README.md
+├── package.json
+└── tsconfig.json
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## 🤝 Contributing
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+Contributions, issues, and feature requests are welcome! Feel free to check [issues page](https://github.com/your-username/go-go-wheels/issues).
 
-Any static assets, like images, can be placed in the `public/` directory.
+## 📞 Contact
 
-## 🧞 Commands
 
-All commands are run from the root of the project, from a terminal:
+Project Link: [https://github.com/your-username/go-go-wheels](https://github.com/your-username/go-go-wheels)
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+---
 
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+⭐️ From [jlopezvaldez](https://github.com/jlopezvaldez)
