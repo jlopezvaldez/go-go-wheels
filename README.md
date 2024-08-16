@@ -66,4 +66,4 @@ Project Link: [https://github.com/your-username/go-go-wheels](https://github.com
 
 ---
 
-⭐️ From [your-username](https://github.com/jlopezvaldez)
+⭐️ From [jlopezvaldez](https://github.com/jlopezvaldez)
