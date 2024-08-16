@@ -1,12 +1,22 @@
 ---
-const { name, value } = Astro.props;
+const {
+  name,
+  value,
+  type = 'text',
+  pattern,
+  maxlength,
+  placeholder,
+} = Astro.props;
 ---
 
 <input
   id={name}
   name={name}
   value={value}
-  type='text'
+  type={type}
   required
+  pattern={pattern}
+  maxlength={maxlength}
+  placeholder={placeholder}
   class='block w-full px-3 py-2 placeholder-gray-400 border border-gray-300 appearance-none rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm'
 />

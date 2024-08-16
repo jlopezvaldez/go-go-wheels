@@ -5,17 +5,15 @@ import ButtonCancel from '@components/modals/ButtonCancel.astro';
 import ButtonSubmit from '@components/modals/ButtonSubmit.astro';
 import InputField from '@components/modals/InputField.astro';
 import ModalLayout from '@components/modals/ModalLayout.astro';
+
+const quote = Astro.props;
 ---
 
 <ModalLayout title='Finish Your Quote'>
   <h3 class='text-lg font-medium text-gray-600 mb-4'>
     Enter tire details to help us customize your options
   </h3>
-  <form
-    class='space-y-6'
-    hx-post='/app/api/projects'
-    x-data='{budgetValue:500}'
-  >
+  <form class='space-y-6' hx-post=`/api/${quote.id}` x-data='{budgetValue:500}'>
     <div class='space-y-4'>
       <div class='grid grid-cols-3 gap-4 mt-1'>
         <div>

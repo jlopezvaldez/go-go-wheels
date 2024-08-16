@@ -10,9 +10,19 @@ import '@src/site.css';
     <link rel='icon' type='image/svg+xml' href='/go-go-logo.svg' />
     <meta name='viewport' content='width=device-width' />
     <meta name='generator' content={Astro.generator} />
+    <meta property='og:type' content='website' />
+
+    <meta
+      property='og:title'
+      content="Go Go Wheels and Tires | Don't Pay Retail on New Wheels and Tires"
+    />
     <meta
       name='description'
-      content="Don't pay retail on new wheels and tires"
+      content="Go Go Wheels and Tires is your Phoenix based source for discount wheels and tires! Don't pay retail on new wheels and tires. We work with the biggest brands to get you premium quality at the best price. | Brands we work with: Goodyear, BF Goodrich, Lock Off-Road, Firestone, Toyo Tires, Nitto, Venom Power, Falken Tires, and more."
+    />
+    <meta
+      property='og:description'
+      content="Go Go Wheels and Tires is your Phoenix based source for discount wheels and tires! Don't pay retail on new wheels and tires. We work with the biggest brands to get you premium quality at the best price. | Brands we work with: Goodyear, BF Goodrich, Lock Off-Road, Firestone, Toyo Tires, Nitto, Venom Power, Falken Tires, and more."
     />
     <title>Go Go Wheels and Tires</title>
     <script>
@@ -32,7 +42,7 @@ import '@src/site.css';
       htmx.process(document.body);
     </script>
   </head>
-  <body>
+  <body hx-boost='true' class='' x-data>
     <TopBar />
     <dialog></dialog>
     <slot />

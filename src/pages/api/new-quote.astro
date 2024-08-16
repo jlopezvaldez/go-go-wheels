@@ -1,0 +1,17 @@
+---
+import QuoteModal from '@components/modals/QuoteModal.astro';
+import { newQuote } from '@data/pocketbase';
+
+let quote = {};
+
+if (Astro.request.method === 'POST') {
+  const formData = await Astro.request.formData();
+  const phoneNumber = formData.get('phone-input') as string;
+  quote = await newQuote(phoneNumber);
+  console.log('QUOTE: ', quote);
+}
+---
+
+<div hx-target='dialog'>
+  <QuoteModal quote={quote} />
+</div>

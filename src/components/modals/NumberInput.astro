@@ -1,0 +1,30 @@
+---
+const { placeholder = '', name } = Astro.props;
+---
+
+<script is:inline>
+  document
+    .getElementById('numberInput')
+    .addEventListener('input', function (e) {
+      // Remove any non-digit characters
+      this.value = this.value.replace(/\D/g, '');
+
+      // Limit to 3 characters
+      if (this.value.length > 3) {
+        this.value = this.value.slice(0, 3);
+      }
+    });
+</script>
+
+<input
+  class='block w-full px-3 py-2 placeholder-gray-400 border border-gray-300 appearance-none rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm'
+  type='text'
+  name={name}
+  id={name}
+  maxlength='3'
+  placeholder={placeholder}
+  value=''
+  inputmode='numeric'
+  onkeypress='return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))'
+  oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 3)"
+/>

@@ -1,16 +1,57 @@
 ---
 import BrandBar from './BrandBar.astro';
-
-// Your Astro component logic here
 ---
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const phoneInput = document.querySelector('#phone-input');
+
+    phoneInput?.addEventListener('input', function (e) {
+      // Remove all non-digit characters
+      //@ts-ignore
+      let cleaned = this.value.replace(/\D/g, '');
+
+      // Limit to 10 digits
+      cleaned = cleaned.slice(0, 10);
+
+      // Format the number
+      let formatted = '';
+      for (let i = 0; i < cleaned.length; i++) {
+        if (i === 3 || i === 6) {
+          formatted += '-';
+        }
+        formatted += cleaned[i];
+      }
+
+      // Update the input value
+      //@ts-ignore
+      this.value = formatted;
+    });
+
+    // Ensure correct behavior when deleting
+    phoneInput?.addEventListener('keydown', function (e) {
+      //@ts-ignore
+      if (e.key === 'Backspace' || e.key === 'Delete') {
+        //@ts-ignore
+        let selectionStart = this.selectionStart;
+        //@ts-ignore
+        if (this.value.charAt(selectionStart - 1) === '-') {
+          e.preventDefault();
+          //@ts-ignore
+          this.setSelectionRange(selectionStart - 1, selectionStart - 1);
+        }
+      }
+    });
+  });
+</script>
 
 <section class='relative h-screen flex items-center justify-center'>
   <div class='absolute inset-0 bg-cover bg-center z-0 bg-warehouse-image'></div>
   <div class='absolute inset-0 bg-black opacity-50 z-10'></div>
   <div class='z-20 text-white text-center py-10'>
     <div class='px-4'>
-      <div class='my-8'>
-        <div class='flex justify-center items-center mb-10'>
+      <div class='my-6 sm:my-8'>
+        <div class='flex justify-center items-center sm:mb-10'>
           <div
             class='w-28 h-28 bg-white rounded-full flex items-center justify-center overflow-hidden'
           >
@@ -22,42 +63,47 @@ import BrandBar from './BrandBar.astro';
           </div>
         </div>
 
-        <h1 class='text-4xl sm:text-6xl font-bold mb-4 tracking-tight'>
+        <h1 class='text-4xl sm:text-6xl font-bold mb-6 sm:mb-4 tracking-tight'>
           <span class='gradient-text'>Don't Pay Retail</span> on New Wheels and Tires
         </h1>
-        <p class='mt-6 text-xl leading-7 text-white sm:leading-8 sm:text-2xl'>
+        <p class='text-xl leading-7 text-white sm:leading-8 sm:text-2xl'>
           We're a private distributor with <span
             class='italic gradient-text font-semibold'>exclusive</span
           >
           pricing just for you
         </p>
       </div>
-      <div class='flex flex-col sm:flex-row gap-4 max-w-3xl mx-auto mb-6'>
-        <div class='flex-grow'>
+      <div class='flex flex-col sm:flex-row gap-4 max-w-4xl mx-auto mb-6'>
+        <form
+          class='w-full flex flex-col sm:flex-row gap-4'
+          hx-target='dialog'
+          hx-post='/api/new-quote'
+          hx-encoding='multipart/form-data'
+        >
           <input
+            id='phone-input'
             type='tel'
             required
+            name='phone-input'
             placeholder='Enter your phone number'
-            class='w-full px-4 py-4 text-lg text-gray-900 placeholder-gray-500 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-600 focus:border-transparent'
+            class='w-full sm:w-2/3 px-4 py-4 text-lg text-gray-900 placeholder-gray-500 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-600 focus:border-transparent'
             pattern='[0-9]{3}-[0-9]{3}-[0-9]{4}'
             title='Phone number format: 123-456-7890'
+            maxlength='15'
           />
-        </div>
-        <div>
           <button
-            hx-get='/modals/new'
-            hx-target='dialog'
-            class='inline-flex items-center text-xl justify-center w-full px-8 py-4 font-medium text-white transition-all duration-200 bg-amber-400 border border-transparent rounded-xl hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black'
+            type='submit'
+            class='w-full sm:w-2/5 inline-flex items-center text-xl justify-center px-8 py-4 font-medium text-white transition-all duration-200 bg-amber-400 border border-transparent rounded-xl hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black'
           >
             Get Your Free Custom Quote
           </button>
-        </div>
+        </form>
       </div>
       <h3 class='font-medium text-lg mb-2'>
         We work with the biggest brands to get you premium quality at the best
         price
       </h3>
     </div>
-    <div class='my-10'><BrandBar /></div>
+    <div><BrandBar /></div>
   </div>
 </section>
