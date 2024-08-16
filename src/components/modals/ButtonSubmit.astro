@@ -4,7 +4,20 @@ const { label = 'Add' } = Astro.props;
 
 <button
   type='submit'
-  class='inline-flex justify-center px-4 py-2 font-medium text-white bg-amber-400 border border-transparent rounded-md shadow-sm hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black w-auto text-sm'
+  class='inline-flex justify-center px-4 py-2 font-medium text-white bg-amber-400 border border-transparent rounded-md shadow-sm hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black w-full text-sm'
 >
-  {label}
+  <svg
+    class='spinner animate-spin'
+    id='spinner'
+    xmlns='http://www.w3.org/2000/svg'
+    width='24'
+    height='24'
+    viewBox='0 0 24 24'
+    fill='none'
+    stroke='currentColor'
+    stroke-width='2'
+    stroke-linecap='round'
+    stroke-linejoin='round'><path d='M21 12a9 9 0 1 1-6.219-8.56'></path></svg
+  >
+  <p class='button-text'>{label}</p>
 </button>
