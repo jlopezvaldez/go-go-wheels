@@ -1,9 +1,15 @@
 ---
 // About.astro
 import Layout from '@layouts/Layout.astro';
+
+const seo = {
+  title: 'Discount Tires and Wheels in Phoenix | Go Go Wheels and Tires',
+  description:
+    "Discount tires and wheels in Phoenix. Top brands like Goodyear and BF Goodrich at the best prices. Don't pay retail. Get a free quote today!",
+};
 ---
 
-<Layout title='About Us | Go Go Wheels and Tires'>
+<Layout seo={seo}>
   <div class='flex flex-col h-full py-12 px-4 sm:px-6 lg:px-8 min-h-screen'>
     <div
       class='flex-grow flex flex-col justify-center max-w-4xl mx-auto w-full'

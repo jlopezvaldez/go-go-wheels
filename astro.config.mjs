@@ -5,6 +5,7 @@ import netlify from "@astrojs/netlify";
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'http://localhost:4321/',
   integrations: [tailwind()],
   output: "server",
   adapter: netlify()
