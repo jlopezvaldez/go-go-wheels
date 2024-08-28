@@ -2,6 +2,19 @@
 import BottomBar from '@components/BottomBar.astro';
 import TopBar from '@components/TopBar.astro';
 import '@src/site.css';
+
+import SEO from '@components/SEO.astro';
+
+export interface Props {
+  seo: {
+    title: string;
+    description: string;
+    image?: string;
+    canonicalURL?: string;
+  };
+}
+
+const { seo } = Astro.props;
 ---
 
 <html lang='en'>
@@ -9,22 +22,8 @@ import '@src/site.css';
     <meta charset='utf-8' />
     <link rel='icon' type='image/svg+xml' href='/go-go-logo.svg' />
     <meta name='viewport' content='width=device-width' />
-    <meta name='generator' content={Astro.generator} />
-    <meta property='og:type' content='website' />
+    <SEO {...seo} />
 
-    <meta
-      property='og:title'
-      content="Go Go Wheels and Tires | Don't Pay Retail on New Wheels and Tires"
-    />
-    <meta
-      name='description'
-      content="Go Go Wheels and Tires is your Phoenix based source for discount wheels and tires! Don't pay retail on new wheels and tires. We work with the biggest brands to get you premium quality at the best price. | Brands we work with: Goodyear, BF Goodrich, Lock Off-Road, Firestone, Toyo Tires, Nitto, Venom Power, Falken Tires, and more."
-    />
-    <meta
-      property='og:description'
-      content="Go Go Wheels and Tires is your Phoenix based source for discount wheels and tires! Don't pay retail on new wheels and tires. We work with the biggest brands to get you premium quality at the best price. | Brands we work with: Goodyear, BF Goodrich, Lock Off-Road, Firestone, Toyo Tires, Nitto, Venom Power, Falken Tires, and more."
-    />
-    <title>Go Go Wheels and Tires</title>
     <script>
       import * as htmx from 'htmx.org';
       import Alpine from 'alpinejs';
